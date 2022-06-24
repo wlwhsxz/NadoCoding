@@ -1,0 +1,308 @@
+# 나도코딩 파이썬 복습
+
+############################################
+
+# cabinet = {"A-3":"유재석", "B-100":"김태호"}
+# print(cabinet)
+
+# del cabinet["A-3"]
+# print(cabinet)
+
+# print(cabinet.keys())
+# print(cabinet.values())
+# print(cabinet.items())
+
+# # 안에 든 값 초기화
+# cabinet.clear()
+
+############################################
+
+# # Tuple : 리스트와는 다르게 내용 변경 및 추가가 불가능. BUT, 속도가 빠름 // 변경되지 않는 값에 대하여 튜플을 사용
+# menu = {"돈까스", "치즈까스"}
+
+# name = "김종국"
+# age = 20
+# hobby = "코딩"
+# print(name, age, hobby)
+
+# (name, age, hobby) = ("김종국", 20, "코딩") # 튜플 형태로 값을 설정
+
+############################################
+
+# Set : 중복 안됨, 순서 없음
+# my_set = {1,2,3,3,3}
+# print(my_set) # {1,2,3} 출력
+
+# java = {"유재석", "김태호", "조세호"}
+# python = set(["유재석", "박명수"])
+# # 교집합 출력
+# print(java & python)
+# print(java.intersection(python))
+# # 합집합
+# print(java | python) # 출력 시 순서 무관
+# print(java.union(python))
+# # 차집합
+# print(java - python)
+# print(java.difference(python))
+# # 추가
+# python.add("김태호")
+# # 삭제
+# java.remove("김태호")
+
+############################################
+
+# 자료구조의 변경
+# Set
+# menu = {"커피", "우유", "주스"}
+# print(menu, type(menu))
+# # List
+# menu = list(menu)
+# print(menu, type(menu))
+# # Tuple
+# menu = tuple(menu)
+# print(menu, type(menu))
+# # Set
+# menu = set(menu)
+# print(menu, type(menu))
+
+############################################
+
+# # 퀴즈 4
+# from random import *
+# lst = list(range(1,21))
+# shuffle(lst)
+# print(lst)
+# chicken = lst.pop() 
+# print(chicken)
+# coffee = sample(lst, 3)
+# print(coffee)
+
+# # 답안 내용 
+# winners = sample(lst, 4)
+# chicken = winners[0]
+# coffee = winners[1:]
+
+############################################
+
+# continue & break
+# absent = [2, 5] # 결석
+# no_book = [7]
+# for student in range(1,11):
+#     if student in absent:
+#         print(f'{student}는 결석이구나')
+#         continue
+#     elif student in no_book:
+#         print(f'{student}은 수업 마치고 교무실로')
+#         print("수업은 여기까지다.")
+#         break
+#     else:
+#         print("{0}, 책 읽어봐".format(student))
+
+############################################
+
+# 출석번호 1,2,3,4 앞에 100을 붙이고자 함
+# students = [1, 2, 3, 4, 5]
+# students = [i+100 for i in students]
+# print(students)
+
+# 학생 이름을 길이로 변환
+# students = ["Iron Man", "Thor"]
+# students = [len(i) for i in students]
+# print(students)  
+
+# 학생 이름을 대문자로 변환
+# students = [i.upper() for i in students]
+# print(students)
+
+############################################
+
+# 퀴즈 5)
+# import random
+# count = 0
+# for i in range(1, 51):
+#     time = random.randrange(5, 50)
+#     if (time >= 5) and (time <= 15) :
+#         print(f'[O] {i}번째 손님 (소요시간 : {time}분')
+#         count += 1
+#     else :
+#         print(f'[ ] {i}번째 손님 (소요시간 : {time}분')
+
+# print(f'\n 총 탑습 승객 : {count}분') 
+
+############################################
+
+# 함수
+
+# def open_account():
+#     print("새로운 계좌가 열렸습니다.")
+
+# def deposit(balance, money): # 입금
+#     print(f'입금이 완료되었습니다. 잔액은{balance + money}원 입니다.')
+#     return balance + money
+
+# def withdraw(balance, money):
+#     if balance >= money: # 잔액이 출금보다 많으면 
+#         print(f"출금이 완료되었습니다. 잔액은 {balance - money}원 입니다.")
+#         return balance - money
+#     else:
+#         print(f'출금이 완료되지 않았습니다. 잔액은 {balance}원 입니다.')
+#         return balance
+
+# def withdraw_night(balance, money): # 저녁에 출금
+#     commission = 100 # 수수료 100원
+#     return commission, balance - money - commission
+
+# balance = 0 # 잔액
+# balance = deposit(balance, 1000)
+# balance = withdraw(balance, 2000)
+# balance = withdraw(balance, 500)
+# commission, balance = withdraw_night(balance, 500)
+# print(f'수수료 {commission}원 이며, 500원 출금하여 현재 잔액은{balance}원 입니다.')
+
+############################################
+
+# 함수 기본값
+# def profile(name, age, main_lang):
+#     print(f'이름 : {name} // 나이 : {age} // 주 사용 언어 {main_lang}')
+
+# profile("유재석", 20, "java")
+# profile("김태호", 23, "python")
+
+# 만약 같은 나이, 같은 언어를 사용하는 경우
+# def profile(name, age = 20, main_lang = "javascript"):
+    # print(f'이름 : {name} // 나이 : {age} // 주 사용 언어 {main_lang}')
+
+# profile("유재석")
+# profile("김태호")
+
+############################################
+
+# 키워드 값
+
+# profile(main_lang="자바", age=25, name="정형돈") # 키워드를 이용하여 순서 상관없이 값 지정하여 호출 가능
+
+############################################
+
+# 가변인자
+# def profile(namme, age, lang1, lang2, lang3, lang4):
+    # print(lang1, lang2, lang3, lang4)
+
+# 가변인자 사용 -> 
+# def profile(name, age, *language):
+#     print(f'이름 : {name} 나이 : {age}', end = " ")
+#     for lang in language:
+#         print(lang, end = " ")
+#     print()
+
+# profile("유재석", 20, "Python", "Kotlin")
+
+############################################
+
+# 지역변수 : 함수 호출시 만들어졌다가 함수 호출이 끝날 때 사라지는 변수
+# 전역변수 : 프로그램 내 어디서든 호출 및 사용이 가능한 함수
+
+# def checkpoint(soldiers):
+#     global gun # 전역 공간에 있는 gun 사용
+#     gun = gun - soldiers
+#     print(f'[함수 내] 남은 총 : {gun}')
+
+# print(f'전체 총 : {gun}')
+# checkpoint(2) # 경계 근무에 2명 차출
+# print(f'남은 총 : {gun}')
+
+## 일반적으로 전역 변수를 많이 사용하는 것은 권장되지 않는다.
+## 가급적 함수의 파라미터로 계산, 반환 값을 받아 사용하는 방법이 바람직
+
+# gun = 10
+# def checkpoint_ret(gun, soldiers):
+#     gun = gun - soldiers
+#     print(f'[함수 내] 남은 총 : {gun}')
+#     return gun
+
+# print(f'전체 총 : {gun}')
+# gun = checkpoint_ret(gun, 2)
+# print(f'남은 총 : {gun}')
+
+############################################
+
+# 퀴즈 6)
+# def std_weight(height, gender):
+#     formula_male = height * height * 22
+#     formula_female = height * height * 21
+#     if gender == "male":
+#         print(f'키 {height} 남자의 표준 체중은 {formula_male}입니다.')
+#     elif gender == "female":
+#         print(f'키 {height} 여자의 표준 체중은 {formula_female}입니다.')
+
+# std_weight(1.75, "male")
+
+# 답안 내용
+# def std_weight(height, gender): # 키 m 단위(실수), 성별 "남자" / "여자"
+#     if gender == "남자":
+#         return height * height * 22
+#     else :
+#         return height * height * 21
+
+# height = 175 # cm 단위
+# gender = "남자"
+# weight = round(std_weight(height/100, gender), 2)
+# print(f'키 {height}cm {gender}의 표준 체중은 {weight}kg 입니다.')
+
+############################################
+
+# 표준 입출력
+# import sys
+# print("python", "java", file=sys.stdout)
+# print("python", "java", file=sys.stderr)
+
+# # 시험 성적
+# scores = {"수학" : 0, "국어" : 100, "코딩" : 80}
+# for subject, score in scores.items():
+#     print(subject.ljust(4), str(score).rjust(4), sep = ":") #ljust(n) // 왼쪽 정렬, 왼쪽 n칸 공간 확보, rjust(n) // 오른쪽 정렬, 오른쪽 ""
+
+# 은행 대기순번표
+# 001, 002, 003, ...
+# for num in range(1, 21):
+#     print(f'대기번호 : {str(num).zfill(3)}') #zfill(3) // 3자리 중 빈 곳을 0으로 채워라
+
+############################################
+
+# 다양한 입출력 포멧
+
+############################################
+
+# # 파일 입출력
+# score_file = open("score.txt", "w", encoding="utf8") 
+# print("수학 : 0", file=score_file)
+# print("영어 : 50", file=score_file)
+# score_file.close() # w로 쓰기로 열었으면 close가 반드시 있어야 함
+
+# # "a" => 내용 덧붙이기
+# score_file = open("score.txt", "a", encoding="utf8")
+# score_file.write("과학 : 80")
+# score_file.close()
+
+# # "r" => 파일 읽기
+# score_file = open("score.txt", "r", encoding="utf8")
+# # print(score_file.read()) # 전체 다 읽기
+# # print(score_file.readline()) # 한줄 씩 읽기 // readline() 에도 줄바꿈이 들어가 있음
+# # score_file.clsoe()
+
+# # n 줄 읽기
+# # # 방법 1
+# # while True:
+# #     line = score_file.readline()
+# #     if not line:
+# #         break
+# #     print(line, end="")
+# # score_file.clsoe()
+
+# # 방법 2
+# lines = score_file.readlines() # list 형태로 저장
+# for line in lines:
+#     print(line, end="")
+# score_file.close()
+
+############################################
+
+# pickle (3:26:53)
