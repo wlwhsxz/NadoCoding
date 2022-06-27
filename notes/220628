@@ -1,0 +1,683 @@
+# 나도코딩 파이썬 복습
+
+############################################
+
+# cabinet = {"A-3":"유재석", "B-100":"김태호"}
+# print(cabinet)
+
+# del cabinet["A-3"]
+# print(cabinet)
+
+# print(cabinet.keys())
+# print(cabinet.values())
+# print(cabinet.items())
+
+# # 안에 든 값 초기화
+# cabinet.clear()
+
+############################################
+
+# # Tuple : 리스트와는 다르게 내용 변경 및 추가가 불가능. BUT, 속도가 빠름 // 변경되지 않는 값에 대하여 튜플을 사용
+# menu = {"돈까스", "치즈까스"}
+
+# name = "김종국"
+# age = 20
+# hobby = "코딩"
+# print(name, age, hobby)
+
+# (name, age, hobby) = ("김종국", 20, "코딩") # 튜플 형태로 값을 설정
+
+############################################
+
+# Set : 중복 안됨, 순서 없음
+# my_set = {1,2,3,3,3}
+# print(my_set) # {1,2,3} 출력
+
+# java = {"유재석", "김태호", "조세호"}
+# python = set(["유재석", "박명수"])
+# # 교집합 출력
+# print(java & python)
+# print(java.intersection(python))
+# # 합집합
+# print(java | python) # 출력 시 순서 무관
+# print(java.union(python))
+# # 차집합
+# print(java - python)
+# print(java.difference(python))
+# # 추가
+# python.add("김태호")
+# # 삭제
+# java.remove("김태호")
+
+############################################
+
+# 자료구조의 변경
+# Set
+# menu = {"커피", "우유", "주스"}
+# print(menu, type(menu))
+# # List
+# menu = list(menu)
+# print(menu, type(menu))
+# # Tuple
+# menu = tuple(menu)
+# print(menu, type(menu))
+# # Set
+# menu = set(menu)
+# print(menu, type(menu))
+
+############################################
+
+# # 퀴즈 4
+# from random import *
+# lst = list(range(1,21))
+# shuffle(lst)
+# print(lst)
+# chicken = lst.pop() 
+# print(chicken)
+# coffee = sample(lst, 3)
+# print(coffee)
+
+# # 답안 내용 
+# winners = sample(lst, 4)
+# chicken = winners[0]
+# coffee = winners[1:]
+
+############################################
+
+# continue & break
+# absent = [2, 5] # 결석
+# no_book = [7]
+# for student in range(1,11):
+#     if student in absent:
+#         print(f'{student}는 결석이구나')
+#         continue
+#     elif student in no_book:
+#         print(f'{student}은 수업 마치고 교무실로')
+#         print("수업은 여기까지다.")
+#         break
+#     else:
+#         print("{0}, 책 읽어봐".format(student))
+
+############################################
+
+# 출석번호 1,2,3,4 앞에 100을 붙이고자 함
+# students = [1, 2, 3, 4, 5]
+# students = [i+100 for i in students]
+# print(students)
+
+# 학생 이름을 길이로 변환
+# students = ["Iron Man", "Thor"]
+# students = [len(i) for i in students]
+# print(students)  
+
+# 학생 이름을 대문자로 변환
+# students = [i.upper() for i in students]
+# print(students)
+
+############################################
+
+# 퀴즈 5)
+# import random
+# count = 0
+# for i in range(1, 51):
+#     time = random.randrange(5, 50)
+#     if (time >= 5) and (time <= 15) :
+#         print(f'[O] {i}번째 손님 (소요시간 : {time}분')
+#         count += 1
+#     else :
+#         print(f'[ ] {i}번째 손님 (소요시간 : {time}분')
+
+# print(f'\n 총 탑습 승객 : {count}분') 
+
+############################################
+
+# 함수
+
+# def open_account():
+#     print("새로운 계좌가 열렸습니다.")
+
+# def deposit(balance, money): # 입금
+#     print(f'입금이 완료되었습니다. 잔액은{balance + money}원 입니다.')
+#     return balance + money
+
+# def withdraw(balance, money):
+#     if balance >= money: # 잔액이 출금보다 많으면 
+#         print(f"출금이 완료되었습니다. 잔액은 {balance - money}원 입니다.")
+#         return balance - money
+#     else:
+#         print(f'출금이 완료되지 않았습니다. 잔액은 {balance}원 입니다.')
+#         return balance
+
+# def withdraw_night(balance, money): # 저녁에 출금
+#     commission = 100 # 수수료 100원
+#     return commission, balance - money - commission
+
+# balance = 0 # 잔액
+# balance = deposit(balance, 1000)
+# balance = withdraw(balance, 2000)
+# balance = withdraw(balance, 500)
+# commission, balance = withdraw_night(balance, 500)
+# print(f'수수료 {commission}원 이며, 500원 출금하여 현재 잔액은{balance}원 입니다.')
+
+############################################
+
+# 함수 기본값
+# def profile(name, age, main_lang):
+#     print(f'이름 : {name} // 나이 : {age} // 주 사용 언어 {main_lang}')
+
+# profile("유재석", 20, "java")
+# profile("김태호", 23, "python")
+
+# 만약 같은 나이, 같은 언어를 사용하는 경우
+# def profile(name, age = 20, main_lang = "javascript"):
+    # print(f'이름 : {name} // 나이 : {age} // 주 사용 언어 {main_lang}')
+
+# profile("유재석")
+# profile("김태호")
+
+############################################
+
+# 키워드 값
+
+# profile(main_lang="자바", age=25, name="정형돈") # 키워드를 이용하여 순서 상관없이 값 지정하여 호출 가능
+
+############################################
+
+# 가변인자
+# def profile(namme, age, lang1, lang2, lang3, lang4):
+    # print(lang1, lang2, lang3, lang4)
+
+# 가변인자 사용 -> 
+# def profile(name, age, *language):
+#     print(f'이름 : {name} 나이 : {age}', end = " ")
+#     for lang in language:
+#         print(lang, end = " ")
+#     print()
+
+# profile("유재석", 20, "Python", "Kotlin")
+
+############################################
+
+# 지역변수 : 함수 호출시 만들어졌다가 함수 호출이 끝날 때 사라지는 변수
+# 전역변수 : 프로그램 내 어디서든 호출 및 사용이 가능한 함수
+
+# def checkpoint(soldiers):
+#     global gun # 전역 공간에 있는 gun 사용
+#     gun = gun - soldiers
+#     print(f'[함수 내] 남은 총 : {gun}')
+
+# print(f'전체 총 : {gun}')
+# checkpoint(2) # 경계 근무에 2명 차출
+# print(f'남은 총 : {gun}')
+
+## 일반적으로 전역 변수를 많이 사용하는 것은 권장되지 않는다.
+## 가급적 함수의 파라미터로 계산, 반환 값을 받아 사용하는 방법이 바람직
+
+# gun = 10
+# def checkpoint_ret(gun, soldiers):
+#     gun = gun - soldiers
+#     print(f'[함수 내] 남은 총 : {gun}')
+#     return gun
+
+# print(f'전체 총 : {gun}')
+# gun = checkpoint_ret(gun, 2)
+# print(f'남은 총 : {gun}')
+
+############################################
+
+# 퀴즈 6)
+# def std_weight(height, gender):
+#     formula_male = height * height * 22
+#     formula_female = height * height * 21
+#     if gender == "male":
+#         print(f'키 {height} 남자의 표준 체중은 {formula_male}입니다.')
+#     elif gender == "female":
+#         print(f'키 {height} 여자의 표준 체중은 {formula_female}입니다.')
+
+# std_weight(1.75, "male")
+
+# 답안 내용
+# def std_weight(height, gender): # 키 m 단위(실수), 성별 "남자" / "여자"
+#     if gender == "남자":
+#         return height * height * 22
+#     else :
+#         return height * height * 21
+
+# height = 175 # cm 단위
+# gender = "남자"
+# weight = round(std_weight(height/100, gender), 2)
+# print(f'키 {height}cm {gender}의 표준 체중은 {weight}kg 입니다.')
+
+############################################
+
+# 표준 입출력
+# import sys
+# print("python", "java", file=sys.stdout)
+# print("python", "java", file=sys.stderr)
+
+# # 시험 성적
+# scores = {"수학" : 0, "국어" : 100, "코딩" : 80}
+# for subject, score in scores.items():
+#     print(subject.ljust(4), str(score).rjust(4), sep = ":") #ljust(n) // 왼쪽 정렬, 왼쪽 n칸 공간 확보, rjust(n) // 오른쪽 정렬, 오른쪽 ""
+
+# 은행 대기순번표
+# 001, 002, 003, ...
+# for num in range(1, 21):
+#     print(f'대기번호 : {str(num).zfill(3)}') #zfill(3) // 3자리 중 빈 곳을 0으로 채워라
+
+############################################
+
+# 다양한 입출력 포멧
+
+############################################
+
+# # 파일 입출력
+# score_file = open("score.txt", "w", encoding="utf8") 
+# print("수학 : 0", file=score_file)
+# print("영어 : 50", file=score_file)
+# score_file.close() # w로 쓰기로 열었으면 close가 반드시 있어야 함
+
+# # "a" => 내용 덧붙이기
+# score_file = open("score.txt", "a", encoding="utf8")
+# score_file.write("과학 : 80")
+# score_file.close()
+
+# # "r" => 파일 읽기
+# score_file = open("score.txt", "r", encoding="utf8")
+# # print(score_file.read()) # 전체 다 읽기
+# # print(score_file.readline()) # 한줄 씩 읽기 // readline() 에도 줄바꿈이 들어가 있음
+# # score_file.clsoe()
+
+# # n 줄 읽기
+# # # 방법 1
+# # while True:
+# #     line = score_file.readline()
+# #     if not line:
+# #         break
+# #     print(line, end="")
+# # score_file.clsoe()
+
+# # 방법 2
+# lines = score_file.readlines() # list 형태로 저장
+# for line in lines:
+#     print(line, end="")
+# score_file.close()
+
+############################################
+
+# pickle : 프로그램 상에서 사용하는 데이터를 파일 형태로 저장하는 것
+
+# import pickle
+# profile_file = open("profile.pickle", "wb") # profile.pickle 파일을 w - 쓰기 b - 바이너리(pickle 사용의 기본 타입) 형식으로 open
+# profile = {"이름" : "박명수", "나이" : 30, "취미" : ["축구", "코딩", "여행"]}
+# print(profile)
+# pickle.dump(profile, profile_file) # profile에 있는 정보를 file에 저장
+# profile_file.close()
+
+# profile_file = open("profile.pickle", "rb") # 읽기
+# profile = pickle.load(profile_file) # file에 있는 정보를 profile에 불러오기
+# profile_file.close()
+
+# # with
+# with open("profile.pickle", "rb") as profile_file:
+#     print(pickle.load(profile_file)) # with문은 자동으로 close 함
+
+# # 예시
+# with open("study.txt", "w", encoding="utf8") as study_file:
+#     study_file.write("파이썬을 열심히 공부하고 있어요.")
+
+# with open("study.txt", "r", encoding="utf8") as study_file:
+#     print(study_file.read())
+
+############################################
+
+# 퀴즈 7)
+# for i in range(1, 2):
+#     with open( str(i) + "주차 보고서.txt", "w", encoding="utf8") as weekly_report:
+#         weekly_report.write('부서 : \n이름 : \n업무 요약 : ')
+
+########################################################################################
+
+# # 클래스 
+
+# # 마린 : 공격 유닛, 군인, 총을 쏠 수 있음
+
+# marine_name = "마린" # 유닛의 이름
+# hp = 40 # 유닛의 체력
+# damage = 5 # 유닛의 공격력
+
+# print(f'{marine_name} 유닛이 생성되었습니다.')
+# print(f'체력 {hp}, 공격력 {damage}')
+
+# def attack(name, location, damage):
+#     print(f'{name} : {location} 방향으로 적군을 공격 합니다. 공격력[{damage}]')
+
+# attack(marine_name, "1시", damage)
+# attack(marine_name, "11시", damage)
+
+# # 한 유닛에 대한 함수 정의, 사용이라면 무관하지만 유닛이 둘 이상이 되면 중복되는 함수들을 클래스로 생성 & 사용이 효율적이다.
+
+# class Unit:
+#     def __init__(self, name, hp, damage):
+#         self.name = name
+#         self.hp = hp
+#         self.damage = damage
+#         print(f'{self.name} 유닛이 생성되었습니다.')
+#         print(f'체력 {self.hp}, 공격력 {self.damage}')
+
+# marine1 = Unit("마린", 10, 5)
+# tank1 = Unit("탱크", 50, 15)
+# tank2 = Unit("탱크", 50, 15)
+
+
+# # # 시즈모드 변수를 추가 / 적용 가능
+# tank1.siege_mode = True
+# if tank1.siege_mode == True:
+#     print("탱크는 시즈모드 중입니다.")
+
+# if tank2.siege_mode == True: # tank2 객체에는 siege_mode 메소드를 할당하지 않았으므로 오류
+#     print("탱크는 시즈모드 중입니다.")
+
+# ########################################################################################
+
+# # 상속
+
+# from unicodedata import name
+
+
+# class Unit: # 부모 클래스
+#     def __init__(self, name, hp):
+#         self.name = name
+#         self.hp = hp
+
+# class AttackUnit(Unit): # 자식 클래스
+#     def __init__(self, name, hp, damage):
+#         # self.name = name
+#         # self.hp = hp
+#         Unit.__init__(self, name, hp) # name, hp 부분은 Unit과 겹치므로 상속을 받아 사용할 수 있다 
+#         self.damage = damage
+
+#     def attack(self, location):
+#         print(f'{self.name} : {location} 방향으로 적군을 공격 합니다. 공격력[{self.damage}]')
+            
+# firebat1 = AttackUnit("파이어뱃", 20, 10)
+# firebat1.attack("5시")
+
+# ########################################################################################
+
+# # 다중 상속 : 두 가지 이상의 클래스를 상속
+
+# # 드랍쉽 : 공중 유닛, 수송선. 공격 불가능
+# class Flyable:
+#     def __init__(self, flying_speed):
+#         self.flying_speed = flying_speed
+
+#     def fly(self, naem, location):
+#         print(f'{name} : {location} 방향으로 날아갑니다. [속도 {self.flying_speed}]')
+
+# # 공중 공격 유닛 클래스
+# class FlyableAttackUnit(AttackUnit, Flyable): # AttackUnit, Flyable 다중 클래스를 상속
+#     def __init__(self, name, hp, damage, flying_speed):
+#         AttackUnit.__init__(self, name, hp, damage)
+#         Flyable.__init__(self, flying_speed)
+
+# # 발키리 : 공중 공격 유닛
+# valkyrie = FlyableAttackUnit("발키리", 40, 15, 5)
+# valkyrie.fly(valkyrie.name, "3시")
+
+# ########################################################################################
+
+# # 메소드 오버라이딩 : 부모 클래스의 메소드의 동작 방법을 변경(재정의)하여 우선적으로 사용하는 것
+# # 공중과 지상 유닛이 공통적으로 사용할 수 있는 move() 라는 함수를 재정의하여 사용할 수 있다
+
+# ########################################################################################
+
+# # pass : 함수 내에서 아무런 동작 없이 다음으로 넘어감
+
+# ########################################################################################
+
+# # super : 부모 클래스를 상속 받는 다르 방법 중 하나
+
+# # 기존 방법 <-> superP
+# # Unit.__init__(self, name, hp) <-> #super().__init__(name, hp) # 허나, 다중 상속 시 문제 발생
+
+# # super 다중 상속 사용 방법
+# class FlyableUnit(Unit, Flyable):
+#     def __init__(self):
+#         Unit.__init__(self)
+#         Flyable.__init__(self) # 이와 같이 상속 받고자 하는 클래스들을 각각 따로 호출해주어야 함
+
+# ########################################################################################
+
+# 퀴즈) 주어진 코드를 활용하여 부동산 프로그램을 작성하시오.
+
+# (출력 예제)
+# 총 3대의 매물이 있습니다.
+# 강남 아파트 매매 10억 20101년
+# 마포 오피스텔 전세 5억 2007년
+# 송파 빌라 월세 500/50 2000년
+
+# [코드]
+# class House:
+#     # 매물 초기화
+#     def __init__(self, location, house_type, deal_type, price, completion_year):
+#         pass
+
+#     # 매물 정보 표시
+#     def show_detail(self):
+#         pass
+
+# [답안]
+
+# class House:
+#     # 매물 초기화
+#     def __init__(self, location, house_type, deal_type, price, completion_year):
+#         self.location = location
+#         self.housetype = house_type
+#         self.deal_type = deal_type
+#         self.price = price
+#         self.completion_year = completion_year
+
+#     # 매물 정보 표시
+#     def show_detail(self):
+#         print(self.location, self.housetype, self.deal_type, self.price, self.completion_year)
+
+# houses = []
+# house1 = House("강남", "아파트", "매매", "10억", "2010년")
+# house2 = House("마포", "오피스텔", "전세", "5억", "2007년")
+# house3 = House("송파", "빌라", "월세", "500/50", "2000년")
+
+# houses.append(house1)
+# houses.append(house2)
+# houses.append(house3)
+
+# print(f'총 {len(houses)}대의 매물이 있습니다.')
+# for house in houses:
+#     house.show_detail()
+
+########################################################################################
+
+# # 예외처리
+# try:
+    # code
+# except ValueError:
+    # print("에러! 잘못된 값을 입력하였습니다.") # 잘못된 타입을 입력 등
+# except ZeroDivisionError as err: # 0으로 나눌 때 발생하는 에러)
+    # print(err)
+# except:
+#     print("알 수 없는 에러가 발생하였습니다.") # list index out of range, ValueError, ZeroDivisionError 제외 모든 에러 포함
+# ->
+# except Exception as err:
+#     print("알 수 없는 에러가 발생하였습니다.")
+#     print(err) # 어떤 에러인지 확인하기 위함
+
+########################################################################################
+
+# 에러 발생시키기
+
+# try:
+    # code
+    # if a > b or b > c:
+        # raise ValueError # 자발적으로 에러 발생시키기 -> 아래 print 문장은 건너띄고 ValueError로 이동하여 해당 코드 수행
+    # print(f'{a}, {b}, {C}')
+# except ValueError:
+    # print("에러! 잘못된 값을 입력하였습니다.")
+
+########################################################################################
+
+# # 사용자 정의 에러
+
+# class BigNumberError(Exception):
+#     def __init(self, msg):
+#         self.msg = msg
+
+#     def __str__(self):
+#         return self.msg
+
+# try:
+#     code
+#     if a > b or b > c:
+#         raise BigNumberError(f'입력값 : {a}, {b}')
+#     print("~")
+# except BigNumberError as err:
+#     print("숫자가 너무 큽니다. 작은 숫자를 입력하세요.")
+#     print(err)
+
+########################################################################################
+
+# # finally : 예외와 상관없이 무조건적으로 실행되는 구문
+
+# class BigNumberError(Exception):
+#     def __init(self, msg):
+#         self.msg = msg
+
+#     def __str__(self):
+#         return self.msg
+
+# try:
+#     code
+#     if a > b or b > c:
+#         raise BigNumberError(f'입력값 : {a}, {b}')
+#     print("~")
+# except BigNumberError as err:
+#     print("숫자가 너무 큽니다. 작은 숫자를 입력하세요.")
+#     print(err)
+# finally : # 예외와 상관없이 무조건적으로 실행되는 구문
+#     print("계산기를 이용해주셔서 감사합니다.")
+
+########################################################################################
+
+# 퀴즈 9
+
+# [주어진 코드]
+
+# chicken = 10
+# waiting = 1 # 홀 안에는 현재 만석, 대기번호 1부터 시작.
+# while(True):
+#     print(f'[남은 치킨 : {chicken}]')
+#     order = int(input("치킨 몇 마리 주문하시겠습니까?"))
+#     if order > chicken: # 남은 치킨보다 주문량이 많을 때
+#         print("재료가 부족합니다.")
+#     else:
+#         print(f'[대기번호 {waiting}] {order} 마리 주문이 완료되었습니다.')
+#         waiting += 1
+#         chicken -= order
+
+# [답안 코드]
+
+# class SoldOutError(Exception):
+#     pass
+
+# chicken = 10
+# waiting = 1 # 홀 안에는 현재 만석, 대기번호 1부터 시작.
+# while(True):
+#     try:
+#         print(f'[남은 치킨 : {chicken}]')
+#         order = int(input("치킨 몇 마리 주문하시겠습니까?"))
+#         if order > chicken: # 남은 치킨보다 주문량이 많을 때
+#             print("재료가 부족합니다.")
+#         elif order <= 0:
+#             raise ValueError
+#         else:
+#             print(f'[대기번호 {waiting}] {order} 마리 주문이 완료되었습니다.')
+#             waiting += 1
+#             chicken -= order
+
+#         if chicken == 0:
+#             raise SoldOutError
+
+#     except ValueError:
+#         print("잘못된 값을 입력하였습니다.")
+#     except SoldOutError:
+#         print("재고가 소진되어 더 이상 주문을 받지 않습니다.")
+#         break
+
+########################################################################################
+
+# 모듈 : 자동차를 예로 들면, 타이어가 마모 되면 교체하는 것. 혹은, 필요한 부품 및 기능이 있으면 추가 및 제거 하는 것
+
+# import theater_module as mv # # theater_module 이라는 파일을 mv로 사용
+# mv.price(5)
+# mv.price_morning(3)
+# mv.price_soldier(4)
+
+# from theater_module import * # theater_module 이라는 파일에서 모든 함수들을 읽기
+# price(5)
+# price_morning(3)
+# price_solider(4)
+
+########################################################################################
+
+# 패키지 : 모듈(함수의 집합 - 파일)의 집합 - 폴더
+# import travel.thailand # .thailand 에 해당하는 부분은 import ~ 형식에서는 모듈 혹은 패키지만 가능
+# trip_to = travel.thailand.Thailandackage()
+# trip_to.detail()
+
+# from travel.thailand import ThailandPackage # import 와는 달리 from import 구문에서는 바로 함수 호출 가능
+# trip_to = ThailandPackage()
+
+########################################################################################
+
+# __all__
+
+########################################################################################
+
+# 모듈 직접 실행
+
+# class ThailandPackage:
+#     def detail(self):
+#         print("[태국 패키지 3박 5일] 방콕, 파타야 여행 (야시장 투어) 50만원")
+
+# if __name__ == "__main__":
+#     print("Thailand 모듈을 직접 실행")
+#     print("이 문장은 모듈을 직접 실행할 때만 실행 가능")
+#     trip_to = ThailandPackage()
+#     trip_to.detail()
+# else:
+#     print("Thailand 모듈을 외부에서 호출")
+
+########################################################################################
+
+# 패키지, 모듈 위치
+# import inspect
+# import random
+# print(inspect.getfile(random)) # random 모듈이 어느 위치에 있는지 알려줌
+# print(inspect.getfile(thailand)) # thailand ""
+
+########################################################################################
+
+# 내장 함수 - 외장 함수
+
+########################################################################################
+
+# 퀴즈 10) 
+
+# byme.py -> 
+# def sign():
+#     print("이 프로그램은 나도코딩에 의해 만들어졌습니다.")
+#     print("유튜브 : ~")
+#     print("인스타그램 : ~")
+
+# 사용 ->
+# import byme
+# byme.sign
